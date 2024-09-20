@@ -1,25 +1,38 @@
 import React from 'react';
 import { Container, Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 
 const NavbarComponent = () => {
   return (
     <>
       <Navbar bg="dark" expand="lg" variant="dark">
         <Container>
-          <Navbar.Brand href="#">Flush Style</Navbar.Brand>
+          <LinkContainer to="/" className='navbar-brand'>
+            <Navbar.Brand>Flush Style</Navbar.Brand>
+          </LinkContainer>
           <Navbar.Toggle aria-controls="navbarColor02" />
           <Navbar.Collapse id="navbarColor02">
             <Nav className="me-auto">
-              <Nav.Link href="#">Home</Nav.Link>
-              <Nav.Link href="#">Features</Nav.Link>
-              <Nav.Link href="#">Pricing</Nav.Link>
-              <Nav.Link href="#">About</Nav.Link>
+              <LinkContainer to="/">
+                <Nav.Link>Home</Nav.Link>
+              </LinkContainer>
+              <LinkContainer to="/cart">
+                <Nav.Link>Cart</Nav.Link>
+              </LinkContainer>
+              <LinkContainer to="/new-user">
+                <Nav.Link>New User?</Nav.Link>
+              </LinkContainer>
               <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#">Another action</NavDropdown.Item>
-                <NavDropdown.Item href="#">Something else here</NavDropdown.Item>
+                <LinkContainer to="/login">
+                  <NavDropdown.Item>Login</NavDropdown.Item>
+                </LinkContainer>
+                <LinkContainer to="/signup">
+                  <NavDropdown.Item>Signup</NavDropdown.Item>
+                </LinkContainer>
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="#">Separated link</NavDropdown.Item>
+                <LinkContainer to="/logout">
+                  <NavDropdown.Item>Logout</NavDropdown.Item>
+                </LinkContainer>
               </NavDropdown>
             </Nav>
             <Form className="d-flex">
